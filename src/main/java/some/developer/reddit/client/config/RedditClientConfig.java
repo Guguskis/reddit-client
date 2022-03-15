@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
 import some.developer.reddit.client.client.RedditClient;
 import some.developer.reddit.client.helper.CommentsParser;
+import some.developer.reddit.client.helper.RedditAssembler;
 import some.developer.reddit.client.helper.SubmissionParser;
 
 @Configuration
@@ -30,9 +31,9 @@ public class RedditClientConfig {
     @Bean
     public RedditClient getRedditClient(@Qualifier("reddit") RestTemplate restTemplate, RedditProperties properties) {
         return new RedditClient(
-                new SubmissionParser(),
                 new CommentsParser(),
                 restTemplate,
+                new RedditAssembler(new SubmissionParser()),
                 properties
         );
     }
