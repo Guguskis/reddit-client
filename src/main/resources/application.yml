@@ -1,4 +1,5 @@
-reddit:
-  host: https://old.reddit.com
+# example
+# reddit:
+  # host: https://old.reddit.com
   # Reddit restricts API access for default agents
-  user-agent: "Reddit-Bot (by /u/guguskis)"
+  # user-agent: "Reddit-Bot (by /u/someDeveloper)"
