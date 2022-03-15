@@ -6,13 +6,12 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
+import some.developer.reddit.client.config.RedditProperties;
 import some.developer.reddit.client.helper.CommentsParser;
 import some.developer.reddit.client.helper.SubmissionParser;
 import some.developer.reddit.client.model.Comment;
@@ -24,7 +23,6 @@ import java.net.URL;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Component
 public class RedditClient {
 
     private static final Logger LOG = LoggerFactory.getLogger(RedditClient.class);
@@ -35,12 +33,15 @@ public class RedditClient {
     private final CommentsParser commentsParser;
     private final RestTemplate restTemplate;
 
+    private final RedditProperties properties;
+
     public RedditClient(SubmissionParser submissionParser,
                         CommentsParser commentsParser,
-                        @Qualifier("reddit") RestTemplate restTemplate) {
+                        RestTemplate restTemplate, RedditProperties properties) {
         this.submissionParser = submissionParser;
         this.commentsParser = commentsParser;
         this.restTemplate = restTemplate;
+        this.properties = properties;
     }
 
     public List<Submission> getSubmissions(String subreddit, PageCategory category) {
@@ -95,7 +96,7 @@ public class RedditClient {
 
     private HttpEntity<Object> getHttpEntityWithHeaders() {
         HttpHeaders httpHeaders = new HttpHeaders();
-        httpHeaders.set(HttpHeaders.USER_AGENT, "retardedStockBot 0.1"); // Reddit restricts API access for default agents
+        httpHeaders.set(HttpHeaders.USER_AGENT, properties.getUserAgent());
         return new HttpEntity<>(httpHeaders);
     }
 }

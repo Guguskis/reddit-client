@@ -4,7 +4,6 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import org.springframework.stereotype.Component;
 import some.developer.reddit.client.model.Comment;
 
 import java.time.LocalDateTime;
@@ -14,7 +13,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-@Component
 public class CommentsParser {
 
     public List<Comment> parseComments(String pageHtmlBody) {

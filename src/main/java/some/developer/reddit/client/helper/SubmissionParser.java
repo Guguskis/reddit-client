@@ -1,13 +1,11 @@
 package some.developer.reddit.client.helper;
 
-import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-@Component
 public class SubmissionParser {
 
     public LocalDateTime parseCreationDate(String creationDateText) {

@@ -6,6 +6,9 @@ import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
+import some.developer.reddit.client.client.RedditClient;
+import some.developer.reddit.client.helper.CommentsParser;
+import some.developer.reddit.client.helper.SubmissionParser;
 
 @Configuration
 public class RedditClientConfig {
@@ -22,6 +25,16 @@ public class RedditClientConfig {
     @ConfigurationProperties(prefix = "reddit")
     public RedditProperties getRedditProperties() {
         return new RedditProperties();
+    }
+
+    @Bean
+    public RedditClient getRedditClient(@Qualifier("reddit") RestTemplate restTemplate, RedditProperties properties) {
+        return new RedditClient(
+                new SubmissionParser(),
+                new CommentsParser(),
+                restTemplate,
+                properties
+        );
     }
 
 }
