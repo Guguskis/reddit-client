@@ -1,4 +1,4 @@
-package some.developer.reddit.client.client;
+package some.developer.reddit.client;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
