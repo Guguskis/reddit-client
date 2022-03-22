@@ -50,7 +50,7 @@ public class RedditClient {
 
         return submissionElements.stream()
                 .map(assembler::parseSubmission)
-                .peek(submission -> submission.setSubreddit("r/" + subreddit))
+                .peek(submission -> submission.setSubreddit(subreddit))
                 .collect(Collectors.toList());
     }
 
