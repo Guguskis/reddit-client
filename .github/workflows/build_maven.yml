@@ -27,7 +27,7 @@ jobs:
           GITHUB\_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: >
           mvn -B deploy  
-          -DaltDeploymentRepository=reddit.client::default::https://maven.pkg.github.com/Guguskis/reddit-client/releases 
+          -DaltDeploymentRepository=github::default::https://maven.pkg.github.com/Guguskis/reddit-client/releases 
           -Dtoken=${{ secrets.GITHUB_TOKEN }}
 
       - name: List the current directory
