@@ -22,8 +22,10 @@ jobs:
           java-version: 11
           distribution: microsoft
 
-      - name: Publish maven artifact
-        run: mvn -B clean package --file pom.xml
+      - name: Deploy maven artifact
+        run: |
+          #          -DaltDeploymentRepository=reddit.client::default::
+               mvn -B deploy --file pom.xml
 
       - name: List the current directory
         run: ls -a
