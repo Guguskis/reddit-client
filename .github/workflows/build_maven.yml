@@ -24,7 +24,7 @@ jobs:
 
       - name: Deploy maven artifact
         run: |
-          mvn -B deploy --file pom.xml -DaltDeploymentRepository=reddit.client::default::https://maven.pkg.github.com/Guguskis/reddit-client/releases::default::false
+          mvn -B deploy --file pom.xml -DaltDeploymentRepository=reddit.client::default::https://maven.pkg.github.com/Guguskis/reddit-client/releases
 
       - name: List the current directory
         run: ls -a
