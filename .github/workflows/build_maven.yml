@@ -24,7 +24,7 @@ jobs:
 
       - name: Deploy maven artifact
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB\_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           mvn -B deploy --file pom.xml -DaltDeploymentRepository=reddit.client::default::https://maven.pkg.github.com/Guguskis/reddit-client/releases
 
