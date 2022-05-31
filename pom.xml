@@ -19,7 +19,7 @@
 
     <groupId>some.developer.client</groupId>
     <artifactId>reddit-client</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <name>reddit-client</name>
     <description>reddit-client</description>
 
