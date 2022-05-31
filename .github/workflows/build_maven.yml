@@ -27,7 +27,7 @@ jobs:
       - name: Deploy maven artifact
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: mvn -b deploy -DaltDeploymentRepository=github::default::https://maven.pkg.github.com/Guguskis/reddit-client/releases
+        run: mvn -B deploy -DaltDeploymentRepository=github::default::https://maven.pkg.github.com/Guguskis/reddit-client/releases
 
       - name: List the current directory
         run: ls -a
