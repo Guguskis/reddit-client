@@ -20,6 +20,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: 11
+          distribution: openjdk
 
       - name: Publish maven artifact
         run: mvn -B clean package --file pom.xml
