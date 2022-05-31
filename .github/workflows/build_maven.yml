@@ -24,7 +24,6 @@ jobs:
 
       - name: Deploy maven artifact
         run: |
-          #          -DaltDeploymentRepository=reddit.client::default::
                mvn -B deploy --file pom.xml
 
       - name: List the current directory
